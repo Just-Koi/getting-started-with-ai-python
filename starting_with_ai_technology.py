@@ -144,9 +144,10 @@ print(addLine(126, 127), result)  # Output: 2.666666666666667
 # techniques.
 
 # Here's the basic syntax of the quad() function:
-def func(c):
-    return c
-result, error = quad(func, a, b)
+
+    # def func(c):
+    #     return c
+    # result, error = quad(func, a, b)
 
     # - `func` is the function to be integrated.
     # - `a` and `b` are the lower and upper limits of the integration interval, respectively.
@@ -180,3 +181,195 @@ print(addLine(161, 165), result)  # Output: 0.33333333333333337
 # ========================================================
 # ========================================================
 # ========================================================
+
+# 2. Optimization:
+# You can use the scipy.optimize module to solve optimization
+# problems. Here's an example using the minimize() function 
+# to find the minimum of a function:
+
+from scipy.optimize import minimize
+
+def func(x):
+    return (x[0] - 1)**2 + (x[1] - 2.5)**2
+
+initial_guess = [0, 0]
+result = minimize(func, initial_guess)
+print(addLine(192, 196), result.x)  # Output: [1. 2.5]
+
+# 3. Linear Algebra:
+# You can use the scipy.linalg module for linear algebra operations. 
+# Here's an example to solve a system of linear equations:
+
+from scipy import linalg
+
+A = [[1, 2], [3, 4]]
+b = [5, 6]
+x = linalg.solve(A, b)
+print(addLine(205, 207), x)  # Output: [-4.   4.5]
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+# What is linear algebra?
+
+# Linear algebra is a branch of mathematics that deals with
+# the study of vectors, vector spaces, linear transformations, 
+# and systems of linear equations. It provides a framework for 
+# solving mathematical problems involving linear relationships 
+# and structures.
+
+# In linear algebra, the fundamental objects of study are vectors
+# and matrices. Here are some key concepts in linear algebra:
+
+#     - Vectors: Vectors are quantities that have both magnitude and direction. 
+#     They can be represented as ordered lists of numbers or as column matrices. 
+#     Vectors can be added together, multiplied by scalars, and used to represent 
+#     points, directions, or physical quantities.
+
+#     - Matrices: Matrices are rectangular arrays of numbers, organized into rows 
+#     and columns. They are used to represent linear transformations and systems
+#     of linear equations. Matrices can be added, multiplied, and manipulated 
+#     using various operations.
+
+#     - Linear Transformations: Linear transformations are functions that preserve
+#     vector addition and scalar multiplication. They map vectors from one vector 
+#     space to another while maintaining the properties of linearity. Examples of 
+#     linear transformations include rotations, scaling, and reflections.
+
+#     - Systems of Linear Equations: Systems of linear equations are sets of equations
+#     involving multiple variables, where each equation represents a linear relationship. 
+#     The goal is to find the values of the variables that satisfy all the equations 
+#     simultaneously. Techniques such as Gaussian elimination and matrix inversion are 
+#     commonly used to solve these systems.
+
+#     - Eigenvectors and Eigenvalues: Eigenvectors and eigenvalues are associated with 
+#     square matrices. Eigenvectors are special vectors that remain in the same direction,
+#     up to a scalar factor, when multiplied by a matrix. Eigenvalues are the corresponding 
+#     scalar factors. They have applications in various areas, including principal component 
+#     analysis, image compression, and graph analysis.
+
+# Linear algebra has numerous applications in various fields, including physics, engineering, 
+# computer science, data analysis, and machine learning. It provides a powerful set of tools
+# and techniques for solving problems involving linear relationships, transformations, 
+# and systems of equations.
+
+# In Python, the NumPy and SciPy libraries provide comprehensive support for linear algebra
+# operations, making it convenient to perform calculations and manipulations involving 
+# vectors and matrices.
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+# 4. Interpolation:
+# You can use the scipy.interpolate module for interpolation. 
+# Here's an example of cubic spline interpolation:
+
+from scipy.interpolate import CubicSpline
+
+x = [0, 1, 2, 3, 4]
+y = [0, 1, 4, 9, 16]
+
+cs = CubicSpline(x, y)
+interpolated_value = cs(2.5)
+print(addLine(271, 275), interpolated_value)  # Output: 6.25
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+# What is Cubic spline?
+
+# Cubic spline interpolation is a technique used to construct a 
+# smooth and continuous curve between given data points. It is 
+# commonly used in data analysis, numerical approximation, and 
+# computer graphics.
+
+# The basic idea behind cubic spline interpolation is to fit a piecewise cubic 
+# polynomial to the data points, ensuring that the resulting curve passes 
+# through each point and exhibits smoothness properties. The piecewise nature 
+# means that the curve is composed of individual cubic segments that join 
+# together at the data points.
+
+# To perform cubic spline interpolation, the following steps are typically involved:
+
+    # - Input: Obtain a set of data points (x[i], y[i]) where x[i] represents the independent 
+    # variable and y[i] represents the dependent variable.
+
+    # - Knot Selection: Determine the interval (or "knot") for each data point. These intervals
+    # define the regions where the cubic polynomials will be fitted.
+
+    # - Polynomial Fitting: Construct a cubic polynomial within each interval, ensuring that the curve 
+    # passes through the corresponding data points. This is achieved by solving a system of equations 
+    # that impose the interpolation conditions.
+
+    # - Smoothness Constraints: Apply smoothness constraints at the interior knot points to ensure 
+    # continuity and smoothness of the curve. This typically involves enforcing continuity of the first 
+    # and second derivatives across the intervals.
+
+    # - Evaluate the Spline: Once the cubic spline is constructed, it can be used to estimate function 
+    # values at any desired point within the interpolation range. The polynomial segments are combined to 
+    # form a continuous curve that approximates the original data.
+
+# Cubic spline interpolation provides a flexible and smooth representation of data, allowing for 
+# interpolation and estimation of values between the given data points. It helps to overcome issues 
+# such as overfitting or excessive oscillations that can occur with simpler interpolation methods.
+
+# In Python, the SciPy library provides the scipy.interpolate module, which includes functions for 
+# cubic spline interpolation, such as CubicSpline and interp1d. These functions can be used to
+# perform cubic spline interpolation and obtain the interpolated values for a given set of data points.
+
+# It's worth noting that there are other interpolation techniques available, such as linear 
+# interpolation and polynomial interpolation, each with its own characteristics and use cases. 
+# The choice of interpolation method depends on the specific requirements and nature of the 
+# data being analyzed.
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+# These are just a few examples of what you can do with SciPy. 
+# It provides many more submodules and functions for various 
+# scientific computing tasks, including signal processing, 
+# image processing, statistics, and more. You can refer to the 
+# SciPy documentation for a comprehensive list of features 
+# and functions: https://docs.scipy.org/doc/scipy/reference/
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+import matplotlib.pyplot as plt
+
+# Matplotlib is a popular Python library used for creating static,
+# animated, and interactive visualizations in Python. It provides 
+# a comprehensive set of functions and classes for generating a 
+# wide range of plots, charts, and graphs.
+
+# Creating Basic Plots:
+# Matplotlib provides various functions to create different 
+# types of plots. Here are a few examples:
+
+# 1. Line Plot:
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('From line 356 to line 362: Line Plot')
+plt.show()
+
+# 2. Scatter Plot:
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+plt.scatter(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('From line 366 to line 372: Scatter Plot')
+plt.show()
+
+# 3. Bar Plot:
+
