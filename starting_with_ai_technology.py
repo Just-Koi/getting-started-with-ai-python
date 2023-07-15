@@ -1,4 +1,4 @@
-# Add a function that tells on which line of the code is executed a line of it
+# Add a function that tells on which line of the code is executed on (finished)
 
 # ===============================================================
 # ===============================================================
@@ -18,7 +18,7 @@
 # ===============================================================
 # ===============================================================
 
-def addLine(a, b):
+def addLine(a, b): # function that tells on which line of the code is executed at
     string_a = str(a)
     string_b = str(b)
     return "From line " + string_a + " to line " + string_b + ": "
@@ -789,3 +789,107 @@ data = {'Name': ['Stev', 'Steven', 'Stevene'],
 
 df = pd.DataFrame(data)
 print(addLine(786, 791), '\n', df)
+
+
+# - Accessing Data:
+#   You can access and manipulate data in a DataFrame using various
+#   methods. Here are a few examples:
+
+# :: Accessing columns:
+
+# -- Access a single column
+ages = df['Age']
+# -- Access multiple columns
+subset = df[['Name', 'City']]
+print(addLine(801, 801), 'Accessing data columns - single: ', ages)
+print(addLine(803,803), 'Accessing data columns - multiple: ', subset)
+
+
+# :: Accessing rows:
+
+# -- Access a single row by index
+row = df.loc[0]
+# -- Access multiple rows by index
+subset = df.loc[1:2]
+print(addLine(811,811), 'Accessing data rows - single row: ', row)
+print(addLine(813,813), 'Accessing data rows - multiple: ', subset)
+
+
+# :: Filtering data:
+
+# -- Filter rows based on a condition
+filtered = df[df['Age'] > 30]
+print(addLine(821, 821), 'Filtering data: ', filtered)
+
+# -- Data Manipulation:
+#   pandas provides various functions for data manipulation, such as
+#   sorting, adding or removing columns, and aggregating data. 
+#   Here are a few examples:
+
+# :: Sorting:
+
+# -- Sort DataFrame by a column
+sorted_df = df.sort_values('Age', ascending=False)
+print(addLine(832, 832), 'Soting a dataframe by a column: ', sorted_df)
+
+# :: Adding a Column
+
+# -- Add a new column
+df['Salary'] = [50000, 60000, 70000]
+print(addLine(838, 838), 'Adding a new column (Added "Salary" column): ', df)
+
+# :: Removing a Column
+
+# -- Remove a column
+df.drop('City', axis=1, inplace=True)
+print(addLine(844, 844), 'Removing a column (Removed City column): ', df)
+
+# :: Aggregating data
+
+# -- Calculate the mean age
+mean_age = df['Age'].mean()
+print(addLine(850,850), 'Data aggregation (Mean age): ', mean_age)
+
+# - Data Input and Output
+#   pandas supports various file formats for reading and 
+#   writing data, such as CSV, Excel, SQL databases, and more. Here are
+#   a few examples:
+
+# :: Reading data from a CSV file:
+df = pd.read_csv('data.csv')
+print(addLine(859,859), 'Reading data from CSV file')
+
+# :: Writing data to a CSV file:
+df.to_csv('output.csv', index=False)
+print(addLine(863, 863), 'Writing data to CSV file')
+
+# - Exploratory Data Analysis
+#   pandas provides functions for exploratory data analysis, such as data 
+#   visualization and summary statistics. Here are a few examples:
+
+# :: Summary statistics:
+summary = df.describe()
+print(addLine(871, 871), 'Summary statistics: ', summary) 
+
+# :: Data visualization:
+df = pd.read_csv('data2.csv')
+df.plot(kind='line', x='Food', y='Rank', label="Line 873: Data visualization - Favorite food")
+plt.show()
+
+# These are just some basic operations in pandas. pandas provides many more
+# functionalities for data manipulation, cleaning, merging, and more. You can refer 
+# to the pandas documentation for a comprehensive list of features and 
+# functions: https://pandas.pydata.org/docs/
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+# It's the end of basic libaries for creating AI in Python!
+# I hope you enjoyed it somehow.. Why I did it? There are 
+# not many sources that helps with basics of learing how 
+# to do AI in Python and these are just some basic libaries
+# for AI in Python. Well, that's it. 
+# Enjoy your day or if it's night, then go to sleep quickly.
+# - Kacper Marciniak
+
