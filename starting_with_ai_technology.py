@@ -722,8 +722,8 @@ print ('Model is accureate.')
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 
-X = np.array([[1, 0, -1], [-1, 1, 0], [0, -1, 1]])
-y = np.array([1,0,1]) 
+X = np.array([[1, 0, -1], [-1, 1, 0], [0, -1, 1], [1, 0, -1], [-1, 1, 0], [0, -1, 1]])
+y = np.array([1,0,1, 1, 0, 0]) 
 
 # Assuming X is your feature matrix and y is the target variable
 param_grid = {'C': [0.1, 1, 10], 'gamma': [0.1, 1, 10]}
@@ -733,3 +733,59 @@ grid_search = GridSearchCV(model, param_grid, cv=3)
 grid_search.fit(X, y)
 
 best_params = grid_search.best_params_
+print (addLine(722, 736), best_params)
+
+# - Model Persistence:
+#   scikit-learn allows you to save trained models for later use. 
+#   Here's an example of saving a trained model using the joblib module:
+
+from sklearn.linear_model import LogisticRegression
+import joblib
+
+model = LogisticRegression()
+model.fit(X, y)
+
+print(addLine(742, 749), '\nSklearn allows you to save trained models for later.\nThe exmaple of this is model.pkl')
+joblib.dump(model, 'model.pkl')
+
+
+# These are just a few examples of what you can do with scikit-learn. 
+# It provides many more functionalities for different machine learning tasks, 
+# including feature selection, dimensionality reduction, ensemble methods, and more. 
+# You can refer to the scikit-learn documentation for a comprehensive list of features 
+# and functions: https://scikit-learn.org/stable/
+
+# ========================================================
+# ========================================================
+# ========================================================
+
+import pandas as pd
+
+# Pandas is a popular open-source data manipulation and analysis 
+# library for Python. It provides easy-to-use data structures and data 
+# analysis tools for handling structured data.
+
+# The main data structures in pandas are the DataFrame and Series. A DataFrame 
+# is a two-dimensional table-like data structure that organizes data into rows 
+# and columns, similar to a spreadsheet or a SQL table. It allows you to perform 
+# various operations on the data, such as filtering, sorting, aggregating, and 
+# transforming. A Series, on the other hand, is a one-dimensional labeled array 
+# that can hold any data type.
+
+# Pandas provides powerful functionality for data cleaning, preparation, and analysis. 
+# It offers methods for data loading and saving, handling missing values, merging and 
+# joining datasets, grouping and aggregating data, and performing statistical 
+# calculations. It also integrates well with other libraries in the Python ecosystem, 
+# making it a versatile tool for data analysis and manipulation.
+
+# - Creating a DataFrame:
+#   You can create a DataFrame from various data sources, such as a list, a 
+#   dictionary, or a CSV file. Here's an example of creating a DataFrame 
+#   from a dictionary:
+
+data = {'Name': ['Stev', 'Steven', 'Stevene'],
+        'Age': [25, 30, 35],
+        'City': ['Wroclaw', 'New York', 'Warsaw']}
+
+df = pd.DataFrame(data)
+print(addLine(786, 791), '\n', df)
